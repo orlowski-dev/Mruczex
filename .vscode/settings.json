@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "**/Styles/*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  }
+}

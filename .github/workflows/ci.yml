@@ -26,6 +26,21 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore Mruczex.slnx
 
+            - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: src/Mruczex.Web/package-lock.json
+
+      - name: Install frontend dependencies
+        working-directory: src/Mruczex.Web
+        run: npm ci
+
+      - name: Build Tailwind CSS
+        working-directory: src/Mruczex.Web
+        run: npm run build
+
       - name: Build solution
         run: dotnet build Mruczex.slnx --configuration Release --no-restore
 

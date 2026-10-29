@@ -1,0 +1,12 @@
+{
+  "name": "mruczex-web",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i ./Styles/app.css -o ./wwwroot/css/app.css --watch",
+    "build": "tailwindcss -i ./Styles/app.css -o ./wwwroot/css/app.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
