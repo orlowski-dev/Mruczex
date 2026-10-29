@@ -1,7 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using Mruczex.Web.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// db
+builder.Services.AddDbContext<ApplicationDBContext>(
+    (options) => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
 
 var app = builder.Build();
 

@@ -1,0 +1,33 @@
+
+name: Build & Test
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    name: Build & Test (.NET 10)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore Mruczex.slnx
+
+      - name: Build solution
+        run: dotnet build Mruczex.slnx --configuration Release --no-restore
+
+      - name: Run tests
+        run: dotnet test Mruczex.slnx --configuration Release --no-build --no-restore
