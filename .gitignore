@@ -6,6 +6,8 @@
 # dotenv files
 .env
 
+mruczex.db
+
 # User-specific files
 *.rsuser
 *.suo
